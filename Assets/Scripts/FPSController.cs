@@ -24,7 +24,7 @@ public class FPSController : MonoBehaviour
 
     private void Awake()
     {
-        m_shootAction.performed += _context => { Shoot(); };
+        m_shootAction.performed += _ctx => { Shoot(); };
     }
     
     // Start is called before the first frame update
@@ -50,11 +50,11 @@ public class FPSController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var lookVector = m_lookAction.ReadValue<Vector2>();
-        var moveVector = m_moveAction.ReadValue<Vector2>();
+        var look = m_lookAction.ReadValue<Vector2>();
+        var move = m_moveAction.ReadValue<Vector2>();
 
-        Look(lookVector);
-        Move(moveVector);
+        Look(look);
+        Move(move);
     }
 
     private void Move(Vector2 _moveVector)
@@ -63,13 +63,17 @@ public class FPSController : MonoBehaviour
 
         var moveSpeedPerFrame = m_moveSpeed * Time.deltaTime;
         var move = Quaternion.Euler(0, transform.eulerAngles.y, 0) * new Vector3(_moveVector.x, 0, _moveVector.y);
+        transform.position += move * moveSpeedPerFrame;
     }
 
-    private void Look(Vector2 _lookVector)
+    private void Look(Vector2 _rotate)
     {
         if (_rotate.sqrMagnitude < 0.01) return;
 
-        var rotateSpeedPerFrame = m_rotateSpeed;
+        var rotateSpeedPerFrame = m_rotateSpeed * Time.deltaTime;
+        m_rotation.y += _rotate.x * rotateSpeedPerFrame;
+        m_rotation.x = Mathf.Clamp(m_rotation.x - _rotate.y * rotateSpeedPerFrame, -89, 89);
+        transform.localEulerAngles = m_rotation;
     }
     
     private void Shoot()
