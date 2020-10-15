@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class FPSController : MonoBehaviour
 {
+    public Camera fpsCam;
+    
     public InputAction m_moveAction;
 
     public InputAction m_lookAction;
@@ -78,9 +80,21 @@ public class FPSController : MonoBehaviour
     
     private void Shoot()
     {
-        Instantiate(m_bulletPrefab, m_spawnPoint.position, m_spawnPoint.rotation);
+        Ray ray = fpsCam.ViewportPointToRay((new Vector3(0.5f, 0.5f, 0)));
+        RaycastHit hit;
+        Vector3 targetPoint;
+        if (Physics.Raycast(ray, out hit))
+            targetPoint = hit.point;
+        else
+        {
+            targetPoint = ray.GetPoint(75);
+        }
+
+        Vector3 directionWithoutSpread = targetPoint;
         
-        Vector3 shootDir = m_lookAction.ReadValue<Vector2>();
-        m_bulletPrefab.GetComponent<ProjectileScript>().Setup(shootDir);
+        GameObject currentBullet = Instantiate(m_bulletPrefab, m_spawnPoint.position, Quaternion.identity);
+        currentBullet.transform.forward = directionWithoutSpread.normalized;
+        
+        currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * 50, ForceMode.Impulse);
     }
 }
