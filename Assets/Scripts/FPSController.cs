@@ -79,5 +79,8 @@ public class FPSController : MonoBehaviour
     private void Shoot()
     {
         Instantiate(m_bulletPrefab, m_spawnPoint.position, m_spawnPoint.rotation);
+        
+        Vector3 shootDir = m_lookAction.ReadValue<Vector2>();
+        m_bulletPrefab.GetComponent<ProjectileScript>().Setup(shootDir);
     }
 }

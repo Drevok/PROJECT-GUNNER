@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Setup(Vector3 shootDir)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Rigidbody rigidbody = GetComponent<Rigidbody>();
+        float moveSpeed = 100f;
+        rigidbody.AddForce(shootDir * moveSpeed, ForceMode.Impulse);
     }
 }

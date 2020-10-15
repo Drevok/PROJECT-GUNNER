@@ -289,7 +289,7 @@ MonoBehaviour:
       m_Flags: 0
   m_rotateSpeed: 60
   m_moveSpeed: 5
-  m_bulletPrefab: {fileID: 1939847273552750978, guid: 7dda77fef99d5fe44a946580db87d4aa, type: 3}
+  m_bulletPrefab: {fileID: 8850630167415561836, guid: d2974e8d03b6f9b45a7b961ead250777, type: 3}
   m_spawnPoint: {fileID: 3779949340358259052}
 --- !u!1 &3779949340357014087
 GameObject:
@@ -398,7 +398,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3779949340358259053}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0.753}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3779949338998831736}
