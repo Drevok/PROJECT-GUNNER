@@ -11,10 +11,11 @@ namespace Scripts
         public Character Character;
             private void OnCollisionEnter(Collision other)
         {
-            if (other.collider.CompareTag("Player"))
-            {
+            //if (other.collider.CompareTag("Player"))
+            //{
+                Debug.Log("Writing save file...");
                 DataHandler.Save(DataHandler.UnityDirectory.StreamingAsset, Character, "character");
-            }
+            //}
         }
     }
 

@@ -18,7 +18,7 @@ public class ProjectileScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (isLaunched != false)
+        if (!isLaunched)
         {
             Destroy(gameObject);
         }
