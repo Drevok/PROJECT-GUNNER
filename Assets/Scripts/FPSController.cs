@@ -80,7 +80,9 @@ public class FPSController : MonoBehaviour
     
     private void Shoot()
     {
-        Ray ray = fpsCam.ViewportPointToRay((new Vector3(0.5f, 0.5f, 0)));
+        /*Ray ray = fpsCam.ViewportPointToRay((new Vector3(0.5f, 0.5f, 0)));
+        
+        
         RaycastHit hit;
         Vector3 targetPoint;
         if (Physics.Raycast(ray, out hit))
@@ -95,6 +97,7 @@ public class FPSController : MonoBehaviour
         GameObject currentBullet = Instantiate(m_bulletPrefab, m_spawnPoint.position, Quaternion.identity);
         currentBullet.transform.forward = directionWithoutSpread.normalized;
         
-        currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * 50, ForceMode.Impulse);
+        currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * 50, ForceMode.Impulse);*/
+        Instantiate(m_bulletPrefab, m_spawnPoint.position, Quaternion.identity );
     }
 }

@@ -45,7 +45,7 @@ public static class DataHandler
                 return Application.streamingAssetsPath;
             case UnityDirectory.PersistentData :
                 return Application.persistentDataPath;
-            case unityDirectory.DataPath:
+            case UnityDirectory.DataPath:
                 return Application.dataPath;
             case  UnityDirectory.TemporaryCachePath:
                 return Application.temporaryCachePath;

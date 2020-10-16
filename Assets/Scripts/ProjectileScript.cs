@@ -1,13 +1,29 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
 {
-    public void Setup(Vector3 shootDir)
+    private bool isLaunched = false;
+    
+    public void Awake()
     {
+        
         Rigidbody rigidbody = GetComponent<Rigidbody>();
-        float moveSpeed = 100f;
-        rigidbody.AddForce(shootDir * moveSpeed, ForceMode.Impulse);
+        float moveSpeed = 15f;
+        rigidbody.AddForce(Vector3.forward * moveSpeed, ForceMode.Impulse);
+    }
+    
+
+    private void OnCollisionEnter(Collision other)
+    {
+        Destroy(gameObject);
+    }
+
+    IEnumerator WaitDestruction()
+    {
+        yield return new  WaitForSeconds(0.5f);
+        isLaunched = true;
     }
 }
