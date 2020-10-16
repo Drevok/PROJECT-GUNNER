@@ -336,6 +336,14 @@ PrefabInstance:
       propertyPath: m_spawnPoint
       value: 
       objectReference: {fileID: 1750943768}
+    - target: {fileID: 3779949340057980345, guid: d091c5fa80c67dc44b2eb6c307587e9e, type: 3}
+      propertyPath: m_rotateSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779949340057980345, guid: d091c5fa80c67dc44b2eb6c307587e9e, type: 3}
+      propertyPath: m_moveSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3779949340057980346, guid: d091c5fa80c67dc44b2eb6c307587e9e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -384,5 +392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Joueur
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4889420567755289511, guid: d091c5fa80c67dc44b2eb6c307587e9e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.659
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3779949340057980348, guid: d091c5fa80c67dc44b2eb6c307587e9e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d091c5fa80c67dc44b2eb6c307587e9e, type: 3}

@@ -24,6 +24,8 @@ public class FPSController : MonoBehaviour
 
     [SerializeField] private Transform m_spawnPoint;
 
+    public List<GameObject> bullets;
+
     private void Awake()
     {
         m_shootAction.performed += _ctx => { Shoot(); };
@@ -100,7 +102,12 @@ public class FPSController : MonoBehaviour
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * 50, ForceMode.Impulse);*/
         GameObject Ammo = Instantiate(m_bulletPrefab, m_spawnPoint.position, Quaternion.identity);
         Ammo.GetComponent<Rigidbody>().AddForce(Vector3.forward);
+        bullets.Add(Ammo);
+    }
+
+    void LoadBullets()
+    {
+        bullets = DataHandler.Load<bullets>()
     }
     
-    void LoadBullets 
 }
