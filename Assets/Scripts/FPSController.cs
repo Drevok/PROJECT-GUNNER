@@ -95,9 +95,11 @@ namespace Scripts
             currentBullet.transform.forward = directionWithoutSpread.normalized;
             
             currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * 50, ForceMode.Impulse);*/
-            GameObject Ammo = Instantiate(m_bulletPrefab, m_spawnPoint.position, Quaternion.identity);
+            /*GameObject Ammo = Instantiate(m_bulletPrefab, m_spawnPoint.position, Quaternion.identity);
             Ammo.GetComponent<Rigidbody>().AddForce(Vector3.forward);
-            //Bullets.bullets.Add(Ammo);
+            Bullets.bullets.Add(Ammo);*/
+            
+            DataHandler.Save(DataHandler.UnityDirectory.StreamingAsset, Bullets, "bullets");
         }
 
         /*void LoadBullets()
