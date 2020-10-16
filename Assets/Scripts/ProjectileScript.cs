@@ -9,16 +9,19 @@ public class ProjectileScript : MonoBehaviour
     
     public void Awake()
     {
-        
-        Rigidbody rigidbody = GetComponent<Rigidbody>();
+        StartCoroutine((WaitDestruction()));
+        /*Rigidbody rigidbody = GetComponent<Rigidbody>();
         float moveSpeed = 15f;
-        rigidbody.AddForce(Vector3.forward * moveSpeed, ForceMode.Impulse);
+        rigidbody.AddForce(Vector3.forward * moveSpeed, ForceMode.Impulse);*/
     }
     
 
     private void OnCollisionEnter(Collision other)
     {
-        Destroy(gameObject);
+        if (isLaunched != false)
+        {
+            Destroy(gameObject);
+        }
     }
 
     IEnumerator WaitDestruction()

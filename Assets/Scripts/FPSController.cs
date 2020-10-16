@@ -98,6 +98,9 @@ public class FPSController : MonoBehaviour
         currentBullet.transform.forward = directionWithoutSpread.normalized;
         
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * 50, ForceMode.Impulse);*/
-        Instantiate(m_bulletPrefab, m_spawnPoint.position, Quaternion.identity );
+        GameObject Ammo = Instantiate(m_bulletPrefab, m_spawnPoint.position, Quaternion.identity);
+        Ammo.GetComponent<Rigidbody>().AddForce(Vector3.forward);
     }
+    
+    void LoadBullets 
 }
