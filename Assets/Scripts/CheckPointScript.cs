@@ -13,10 +13,16 @@ namespace Scripts
         {
             //if (other.collider.CompareTag("Player"))
             //{
-                Debug.Log("Writing save file...");
-                DataHandler.Save(DataHandler.UnityDirectory.StreamingAsset, Character, "character");
+                CharacterSaving();
             //}
         }
+
+        public void CharacterSaving()
+        {
+            Debug.Log("Writing save file...");
+        DataHandler.Save(DataHandler.UnityDirectory.StreamingAsset, Character, "character");
+        }
+        
     }
 
     [Serializable]
