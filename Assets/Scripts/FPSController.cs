@@ -6,9 +6,6 @@ using UnityEngine.InputSystem;
 
 namespace Scripts
 {
-
-
-
     public class FPSController : MonoBehaviour
     {
         public Camera fpsCam;
@@ -103,10 +100,10 @@ namespace Scripts
             Bullets.bullets.Add(Ammo);
         }
 
-        void LoadBullets()
+        /*void LoadBullets()
         {
             Bullets.bullets = DataHandler.Load<Bullets>(DataHandler.UnityDirectory.StreamingAsset, "bullet");
-        }
+        }*/
 
     }
     
@@ -115,5 +112,6 @@ namespace Scripts
     {
         public static List<GameObject> bullets;
     }
+    
 }
 
