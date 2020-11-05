@@ -5,6 +5,7 @@ using  System.IO;
 using Application = UnityEngine.Application;
 using System;
 using System.Net.Mime;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public static class DataHandler
 {
@@ -61,11 +62,37 @@ public static class DataHandler
         return isDirectoryExist;
     }
 
-    private static bool CheckFile(string filePath)
+    public static bool CheckFile(string filePath)
     {
         bool isFileExists = File.Exists(filePath);
         return isFileExists;
     }
-    
+    /*public static void SavePlayer(Player player)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/player.data";
+        FileStream stream = new FileStream(path, FileMode.Create);
+        
+        PlayerData data = new PlayerData(player);
+        
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
+
+    public static PlayerData LoadPlayer()
+    {
+        string path = Application.persistentDataPath + "/player.data";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+            stream.Position = 0;
+            PlayerData data = formatter.Deserialize(stream) as PlayerData;
+            stream.Close();
+
+            return data;
+        }
+        return null;
+    }*/
     
 }
